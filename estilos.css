@@ -56,10 +56,18 @@ a:active {
 #cabecalho a {
   text-decoration: none;
   text-shadow: 1px 1px black;
+  padding: 10px;
 }
 
 #menu-de-navegacao ul {
+  list-style-type: none;
+  padding-left: 0;
   margin-bottom: 0;
+}
+
+#menu-de-navegacao li {
+  display: inline-block;
+  padding: 10px;
 }
 
 
@@ -89,10 +97,25 @@ a:active {
   margin-left: 2.5%;
   margin-right: 2.5%;
   display: inline-block;
+  position: relative;
 }
 
 #posts-principais .post .titulo {
   text-shadow: 1px 1px black;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  opacity: 0;
+}
+
+#posts-principais .post .titulo:hover {
+  z-index: 10;
+  top: 0;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  opacity: 1;
 }
 
 #posts-principais .post img {
@@ -138,8 +161,10 @@ a:active {
 
 /* --- Principal >> Nuvem de tags --- */
 #tags {
+  position: sticky;
+  top: 0;
   float: right;
-  width: 300px;
+  width: 270px;
   padding: 15px;
   background-color: black;
   background-image: url(imgs/mula.webp);
@@ -147,6 +172,22 @@ a:active {
   background-size: 300px;
   box-shadow: -4px 0 10px rgba(0, 0, 0, 0.5);
   text-align: center;
+}
+/*
+ * 270px (content) + 15px (padding left) + 15px (padding right) = 300px total width
+ */
+
+#tags span:hover {
+  cursor: pointer;
+}
+
+#tags span {
+  position: relative;
+}
+
+#tags span:active {
+  left: -2px;
+  top: -2px;
 }
 
 #tags h1 {
@@ -258,4 +299,23 @@ a:active {
   color: black;
   border-color: currentColor;
   box-shadow: none;
+}
+
+.novidade::before {
+  content: "Novaidade!";
+  display: inline-block;
+  background: green;
+  padding: 2px 4px 2px 4px;
+  border-radius: 4px;
+}
+
+.boo {
+  position: fixed;
+  bottom: 0;
+  width: 40px;
+  opacity: 0.3;
+}
+
+.boo:hover {
+  opacity: 1;
 }
